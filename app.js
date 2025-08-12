@@ -100,6 +100,10 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
 
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
+
 // Global error handler
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
